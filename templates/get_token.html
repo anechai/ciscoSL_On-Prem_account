@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSSM On-Prem Smart Account builder</title>
+    <link href="{{ url_for('static', filename='cui-2.0.5/css/cui-standard.min.css') }}" rel="stylesheet" type="text/css">    
+  
+</head>
+<body class="cui">
+    <header>
+        <nav class="header" id="styleguideheader" role="navigation">
+            <div class="container-fluid">
+                <div class="header-panels">
+                    <div class="header-panel hidden-md-down">
+                        <a class="header__logo" href="http://www.cisco.com" target="_blank">
+                            <span class="icon-cisco"></span>
+                        </a>
+                        <h1 class="header__title">
+                            <span>CSSM On-Prem Smart Account builder </span>
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <br>
+    <br>
+    <br>
+    <h1>CSSM On-Prem Local Virtual Account builder</h1>
+    <br>
+    <br>
+    <h3>First obtain a security token</h3>
+    <h5>Please provide the following data:</h5>
+    <br>    
+    <form action="/submit" method="post">
+        <div class="cui">
+            <div class="form-group">
+                <div class="form-group__text">         
+                    <div style="text-align: center;">
+                    <label for="cssm_on_prem_ip">CSSM On-Prem IP/FQDN:</label>
+                    </div>
+                    <br>
+                    <input type="text" id="cssm_on_prem_ip" name="cssm_on_prem_ip" placeholder="https://<cssm_on_prem_ip>:8443" required>        
+                </div>   
+            </div>
+                
+            <br>   
+            <div class="form-group">
+                <div class="form-group__text">         
+                    <div style="text-align: center;">
+                    <label for="username">On-Prem username:</label>
+                    </div>
+                    <br>
+                    <input type="text" id="username" name="username" placeholder="<username>" required>        
+                </div>   
+            </div>
+            <br>
+            <div class="form-group">
+                <div class="form-group__text">         
+                    <div style="text-align: center;">
+                    <label for="password">On-Prem password:</label>
+                    </div>
+                    <br>
+                    <input type="password" id="password" name="password" placeholder="<password>" required>        
+                </div>   
+            </div>
+            <br>
+            <div class="form-group">
+                <div class="form-group__text">         
+                    <div style="text-align: center;">
+                    <label for="client_id">Client_ID:</label>
+                    </div>
+                    <br>
+                    <input type="text" id="client_id" name="client_id" placeholder="<Client_ID>" required>        
+                </div>   
+            </div>
+            <br>
+            <div class="form-group">
+                <div class="form-group__text">         
+                    <div style="text-align: center;">
+                    <label for="client_secret">Client secret:</label>
+                    </div>
+                    <br>
+                    <input type="password" id="client_secret" name="client_secret" placeholder="<Client_secret>" required>        
+                </div>   
+            </div>
+            <br><br>    
+            <div style="text-align: center;">
+                <button type="submit" class="btn btn--large">
+                    <div class="flex flex-center">
+                        <div class="flex-center">
+                            <span class="icon-unlock icon-size-24"></span>
+                        </div>
+                        <div class="flex-fluid half-margin-left text-ellipsis">
+                            <div class="text-ellipsis">Get authorization token</div>
+                        </div>
+                    </div>
+                </button>
+            </div>    
+            <br>        
+        </div>
+    </form>
+    <br>
+    
+    <br><br>
+  
+    <br>
+    <br>
+    <footer class="footer">
+        
+    </footer>
+</body>
+</html>

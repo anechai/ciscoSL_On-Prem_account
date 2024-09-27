@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deploy LVAs</title>
+    <link href="{{ url_for('static', filename='cui-2.0.5/css/cui-standard.min.css') }}" rel="stylesheet" type="text/css">    
+    <script>
+        function addLvaFields() {
+            const lvaCount = document.getElementById('lva_count').value;
+            const lvaFieldsContainer = document.getElementById('lva_fields_container');
+            lvaFieldsContainer.innerHTML = ''; // Clear previous fields
+
+            for (let i = 0; i < lvaCount; i++) {
+                const lvaNameField = document.createElement('div');
+                lvaNameField.className = 'form-group';
+                lvaNameField.innerHTML = `
+                    <div class="form-group__text">
+                        <div style="text-align: center;">
+                            <label for="lva_name_${i}">Enter LVA Name for LVA ${i + 1}</label>
+                        </div>
+                        <br>
+                        <input type="text" id="lva_name_${i}" name="lva_name_${i}" placeholder="<LVA name>" required>
+                    </div>
+                `;
+                lvaFieldsContainer.appendChild(lvaNameField);
+
+                const lvaDescriptionField = document.createElement('div');
+                lvaDescriptionField.className = 'form-group';
+                lvaDescriptionField.innerHTML = `
+                    <div class="form-group__text">
+                        <div style="text-align: center;">
+                            <label for="lva_description_${i}">Enter LVA Description for LVA ${i + 1}</label>
+                        </div>
+                        <br>
+                        <input type="text" id="lva_description_${i}" name="lva_description_${i}" placeholder="<LVA description>" required>
+                    </div>
+                `;
+                lvaFieldsContainer.appendChild(lvaDescriptionField);
+            }
+        }
+    </script>
+</head>
+<body class="cui">
+    <header>
+        <nav class="header" id="styleguideheader" role="navigation">
+            <div class="container-fluid">
+                <div class="header-panels">
+                    <div class="header-panel hidden-md-down">
+                        <a class="header__logo" href="http://www.cisco.com" target="_blank">
+                            <span class="icon-cisco"></span>
+                        </a>
+                        <h1 class="header__title">
+                            <span>Deploy LVAs</span>
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <br>
+    <br>
+    <br>
+    <h1>Deploy Local Virtual Accounts</h1>
+    <br>
+    <br>
+    <form action="/deploy_lvas" method="post">
+        <div class="cui">
+            <div class="form-group">
+                <div class="form-group__text">         
+                    <div style="text-align: center;">
+                    <label for="on_prem_account">CSSM On-Prem Smart Account:</label>
+                    </div>
+                    <br>
+                    <input type="text" id="on_prem_account" name="on_prem_account" placeholder="<CSSM On-Prem Smart Account name>" required>        
+                </div>   
+            </div>
+            <br>
+            <div class="form-group">
+                <div class="form-group__text">
+                    <div style="text-align: center;">
+                        <label for="lva_count">How many LVAs do you want to create:</label>
+                    </div>
+                    <br>
+                    <input id="lva_count" name="lva_count" type="number" value="1" required onchange="addLvaFields()">
+                </div>
+            </div>
+            <br>
+            <div id="lva_fields_container"></div>
+            <br>
+            <div style="text-align: center;">
+                <button type="submit" class="btn btn--large">
+                    <div class="flex-center-vertical">
+                        <div class="flex-center">
+                            <span class="icon-cog icon-size-24"></span>
+                        </div>
+                        <div class="flex-fluid half-margin-left text-ellipsis">
+                            <div class="text-ellipsis">Deploy LVAs</div>
+                        </div>
+                    </div>
+                </button>    
+            </div>
+        </div>
+    </form>
+    <br>
+    <footer class="footer">
+        <div class="footer__links">
+            <ul class="list list--inline">
+                <li>
+                    <a href="http://www.cisco.com/cisco/web/siteassets/contacts/index.html" target="_blank">Contacts</a>
+                </li>
+                <li>
+                    <a href="https://secure.opinionlab.com/ccc01/o.asp?id=jBjOhqOJ" target="_blank">Feedback</a>
+                </li>
+                <li>
+                    <a href="https://www.cisco.com/c/en/us/about/help.html" target="_blank">Help</a>
+                </li>
+                <li>
+                    <a href="http://www.cisco.com/c/en/us/about/sitemap.html" target="_blank">Site Map</a>
+                </li>
+                <li>
+                    <a href="https://www.cisco.com/c/en/us/about/legal/terms-conditions.html" target="_blank">Terms &amp; Conditions</a>
+                </li>
+                <li>
+                    <a href="https://www.cisco.com/c/en/us/about/legal/privacy-full.html" target="_blank">Privacy Statement</a>
+                </li>
+                <li>
+                    <a href="https://www.cisco.com/c/en/us/about/legal/privacy-full.html#cookies" target="_blank">Cookie Policy</a>
+                </li>
+                <li>
+                    <a href="https://www.cisco.com/c/en/us/about/legal/trademarks.html" target="_blank">Trademarks</a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>
